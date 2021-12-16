@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+</head>
+
+<body>
+	<form th:action="@{/salvar}" method="POST">
+        <input type="text" name="nome"/>
+        <input type="text" name="inventario"/>
+        <input type="submit" value="Salvar"/>
+    </form>
+    <table>
+        <tr th:each="personagem : ${personagens}">
+        	<td th:text="${personagem.numero}"></td>
+            <td th:text="${personagem.nome}"></td>
+            <td th:text="${personagem.inventario}"></td>
+           
+        </tr>
+    </table>
+</body>
+
+</html>
