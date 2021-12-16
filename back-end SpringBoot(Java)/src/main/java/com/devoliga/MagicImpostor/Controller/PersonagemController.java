@@ -29,6 +29,6 @@ public class PersonagemController {
 	@PostMapping("/salvar")
 	public String salvar(@ModelAttribute Personagem personagem) {
 		service.salvar(personagem);
-		return "personagem";
+		return "redirect:/personagens";
 	}
 }
