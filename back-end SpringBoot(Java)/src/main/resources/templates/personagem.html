@@ -8,8 +8,22 @@
 </head>
 
 <body>
-	<form th:action="@{/salvar}" method="POST">
+	<form th:action="@{/salvar}" th:object="${personagem}" method="POST">
+		<label>Nome: </label>
         <input type="text" name="nome"/>
+      	
+      	<label>Clas:</label>
+      	
+      	<select th:field="${personagem.cla}" required>
+      		<option value="">Escolha o cla</option>
+      		<option th:each="cla : ${clas}"
+      				th:value="${cla.id}"
+      				th:text="${cla.nome}">
+      		
+      		</option>
+      	</select>  
+        
+        
         <input type="submit" value="Salvar"/>
     </form>
     <table>

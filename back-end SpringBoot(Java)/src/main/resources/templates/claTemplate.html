@@ -33,6 +33,7 @@
         <tr th:each="cla : ${cla}">
             <td th:text="${cla.id}"></td>
             <td th:text="${cla.nome}"></td>
+            <td> <a th:href="@{'/detalhesCurso/' + ${cla.id}}">Detalhes</a></td>
             
          </tr>
     </table>

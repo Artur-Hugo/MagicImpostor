@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Curso</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalhes ClÂ</h1>
+    <a href="/">Menu</a>
+    <a href="/clas">Clã</a>
+    <br>
+    <br>
+    <b>Id Curso: </b> <span th:text="${cla.id}"></span>
+    <br><b>Nome: </b> <span th:text="${cla.nome}"></span>
+    <br>
+    <br>
+    Alunos:
+    <table>
+        <tr>
+            <th>Matricula</th>
+            <th>Nome</th>
+            <th>cla</th>
+        </tr>
+       
+        <tr th:each="personagem : ${cla.personagem}">
+            <td th:text="${personagem.numero}"></td>
+            <td th:text="${personagem.nome}"></td>
+            
+        </tr>
+    </table>
+</body>
+</html>
