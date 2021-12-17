@@ -22,9 +22,9 @@ public class ClaService {
 		return claRepository.findAll();
 	}
 
-	public Cla getClaById(Integer id) {
+	public Cla getClaById(Integer idin) {
 		// TODO Auto-generated method stub
-		return claRepository.findById(id).get();
+		return claRepository.findById(idin).get();
 	}
 
 }

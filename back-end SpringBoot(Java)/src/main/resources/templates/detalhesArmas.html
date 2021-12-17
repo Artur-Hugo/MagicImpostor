@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes Professor</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detalhes Armas</h1>
+    <a href="/">Menu</a>
+    <a href="/armas">Armas</a>
+    <br>
+    <br>
+    <b>Código: </b> <span th:text="${armas.codigo}"></span>
+    <br><b>Nome: </b> <span th:text="${armas.nome}"></span>
+    
+   
+
+    <br>
+    <br>
+    Clas Associados:
+    <table>
+        <tr>
+            <th>Id Curso</th>
+            <th>Curso</th>
+        
+        </tr>
+       
+        <tr th:each="cla : ${armas.clas}">
+            <td th:text="${cla.id}"></td>
+            <td th:text="${cla.nome}"></td>
+            
+        </tr>
+    </table>
+    <br>
+    <br>
+
+    <form th:action="@{/associarClaArma(codigo=${armas.codigo})}" method="POST">
+        <label><b>Clâs:</b></label>
+        <select name="id" required>
+            <option value="">Escolha o clâ</option>
+            <option th:each="cla : ${clas}"
+                        th:value="${cla.id}"
+                        th:text="${cla.nome}">
+            </option>
+        </select>
+        <input type="submit" value="Associar Cla" />
+    </form>
+</body>
+</html>
