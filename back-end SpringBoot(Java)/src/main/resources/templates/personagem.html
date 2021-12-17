@@ -11,6 +11,7 @@
 	<form th:action="@{/salvar}" th:object="${personagem}" method="POST">
 		<label>Nome: </label>
         <input type="text" name="nome"/>
+
       	
       	<label>Clas:</label>
       	
@@ -24,18 +25,15 @@
       	</select>  
         
         
+
+       
         <input type="submit" value="Salvar"/>
     </form>
     <table>
-    	   <tr>
-            <th>Matricula</th>
-            <th>Nome</th>
-            <th>Cla</th>
-        	</tr>
         <tr th:each="personagem : ${personagens}">
         	<td th:text="${personagem.numero}"></td>
             <td th:text="${personagem.nome}"></td>
-         	<td th:text="${personagem.cla?.nome}"></td>
+           
            
         </tr>
     </table>
