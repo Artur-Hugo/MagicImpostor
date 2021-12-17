@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Personagem implements Serializable{
@@ -20,7 +22,12 @@ public class Personagem implements Serializable{
 	private Integer numero;
 	
 	private String nome;
-	private String inventario;
+	
+	private String genero;
+	
+	@ManyToOne
+	@JoinColumn(name="ID_CLA")
+	private Cla cla;
 	
 	
 
@@ -36,17 +43,24 @@ public class Personagem implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getInventario() {
-		return inventario;
-	}
-	public void setInventario(String inventario) {
-		this.inventario = inventario;
-	}
 	
+	public String getGenero() {
+		return genero;
+	}
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+	public Cla getCla() {
+		return cla;
+	}
+	public void setCla(Cla cla) {
+		this.cla = cla;
+	}
 	@Override
 	public String toString() {
-		return "Personagem [id=" + numero + ", nome=" + nome + ", inventario=" + inventario + "]";
+		return "Personagem [numero=" + numero + ", nome=" + nome + ", genero=" + genero + ", cla=" + cla + "]";
 	}
+	
 	
 	
 }
